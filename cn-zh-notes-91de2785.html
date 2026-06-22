@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料整理 · 开云信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f7f3ed;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2e2b28;
+            line-height: 1.65;
+            padding: 2rem 1.2rem;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fcfaf7;
+            padding: 2.8rem 2.2rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.04);
+        }
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 1.8rem 0;
+            border-bottom: 1px solid #e5ddd4;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .top-nav .site-id {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: #6b5a4a;
+            background: #ede7df;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+        }
+        .top-nav a {
+            text-decoration: none;
+            color: #7c6b59;
+            font-size: 0.95rem;
+            padding: 0.2rem 0.6rem;
+            transition: background 0.2s;
+        }
+        .top-nav a:hover {
+            background: #e8dfd6;
+            border-radius: 20px;
+        }
+        .top-nav .nav-links {
+            display: flex;
+            gap: 1.6rem;
+        }
+        /* 主标 */
+        .hero {
+            padding: 2.2rem 0 1.2rem 0;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            color: #3b332c;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #6c5f53;
+            border-left: 3px solid #cbb7a4;
+            padding-left: 1.2rem;
+            margin-top: 0.2rem;
+            font-style: normal;
+        }
+        /* 正文段落 */
+        .intro-text {
+            margin: 2rem 0 1.8rem 0;
+        }
+        .intro-text p {
+            margin-bottom: 1.3rem;
+            text-indent: 0;
+        }
+        .intro-text a {
+            color: #8b6f54;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #dacfc4;
+            font-weight: 400;
+        }
+        .intro-text a:hover {
+            color: #4d3f33;
+            text-decoration-color: #8b6f54;
+        }
+        /* 引用框/提示 */
+        .callout {
+            background: #f3ede6;
+            border-left: 5px solid #bfae9b;
+            padding: 1.3rem 1.6rem;
+            margin: 2rem 0 2rem 0;
+            border-radius: 0 14px 14px 0;
+            font-size: 0.97rem;
+            color: #3f382f;
+        }
+        .callout strong {
+            font-weight: 550;
+            color: #5f4e3b;
+        }
+        /* 三个场景模块 */
+        .scenes {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2.2rem 0;
+        }
+        .scene-item {
+            background: #faf6f1;
+            padding: 1.5rem 1.8rem;
+            border-radius: 18px;
+            border: 1px solid #ece3d9;
+            transition: box-shadow 0.15s;
+        }
+        .scene-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4d3f33;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+        .scene-item p {
+            color: #4f453b;
+            font-size: 0.98rem;
+        }
+        .scene-item .tag {
+            display: inline-block;
+            background: #e2d7cb;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #4f3f31;
+            margin-top: 0.5rem;
+            letter-spacing: 0.4px;
+        }
+        /* 常见说明 (FAQ 摘要) */
+        .faq-block {
+            margin: 2.5rem 0 1.2rem 0;
+            padding: 1.8rem 1.5rem;
+            background: #f7f2ea;
+            border-radius: 20px;
+        }
+        .faq-block h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #4b3d31;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #d8cdbf;
+            padding-bottom: 0.6rem;
+        }
+        .faq-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            align-items: baseline;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            color: #6d5b48;
+            min-width: 5em;
+        }
+        .faq-item .a {
+            color: #4d4238;
+        }
+        .faq-item .a a {
+            color: #8b6f54;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .faq-item .a a:hover {
+            color: #4d3f33;
+        }
+        /* 页脚 */
+        .footer-note {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e5ddd4;
+            font-size: 0.85rem;
+            color: #7e7164;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        /* 响应式 */
+        @media (max-width: 580px) {
+            body { padding: 1rem 0.6rem; }
+            .container { padding: 1.6rem 1.2rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .top-nav { flex-direction: column; align-items: flex-start; }
+            .top-nav .nav-links { gap: 1rem; flex-wrap: wrap; }
+            .scene-item { padding: 1.2rem 1.2rem; }
+            .faq-item { flex-direction: column; gap: 0.2rem; }
+            .faq-item .q { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 顶部导航 -->
+    <div class="top-nav">
+        <span class="site-id">开云·索引</span>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </div>
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>资料整理：从零开始的索引方式</h1>
+        <div class="sub">围绕一个关键词的碎片整合尝试 —— <span style="background: #ede7df; padding: 0.1rem 0.5rem; border-radius: 12px;">开云</span></div>
+    </div>
+
+    <!-- 核心介绍段落，自然嵌入链接 -->
+    <div class="intro-text" id="intro">
+        <p>在信息越发离散的今天，为某个名词建立一份简明档案，本身就像一场安静的梳理。这次选择的关键词是「<a href="https://cn-zh-kaaiyun.com">开云</a>」—— 一个在许多语境下被提及，但鲜少有人将其相关线索汇集起来的名称。本文档不试图定义，而是尝试整理那些围绕它出现的资料脉络、常见场景与使用方式，供有需要的人做进一步查考。</p>
+        <p>资料主要来自公开可查的内容索引、社群讨论片段以及一些工具说明页面，经过筛选和归类后形成以下三个常见的切入场景。每个场景都对应着不同的信息需求，也反映出「<a href="https://cn-zh-kaaiyun.com">开云</a>」这个词在不同上下文中的实际用法。</p>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="callout">
+        <strong>说明：</strong> 以下信息均基于公开材料整理，不构成任何形式的建议或引导。页面仅作为资料索引，具体内容请以原始来源为准。所有链接均指向原始出处。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+        <div class="scene-item">
+            <h3>场景一 · 术语对照与背景</h3>
+            <p>在部分技术文档和产品说明中，「开云」被用作一个专有名词，对应特定平台或服务的简称。其出处多见于中文技术社区的早期讨论，以及一些本地化配置指南。若你遇到相关术语，可先通过此关键词检索上下文，通常能定位到原始释义。</p>
+            <span class="tag">资料索引 · 术语</span>
+        </div>
+        <div class="scene-item">
+            <h3>场景二 · 资讯聚合与筛选</h3>
+            <p>部分信息聚合页面会以「开云」作为标签或分类词，用于组织某一类资讯条目。这类页面往往结构简单，以时间倒序排列，适合快速浏览近期相关内容。整理过程中发现，这类聚合源的信息密度差异较大，需要根据发布时间和来源自行判断参考价值。</p>
+            <span class="tag">资讯 · 筛选</span>
+        </div>
+        <div class="scene-item">
+            <h3>场景三 · 工具与使用参考</h3>
+            <p>在一些操作指引或配置说明里，会以「开云」指代某个具体的工具或接口名称。这类文档偏重步骤描述，通常包含代码片段或命令行示例。如果你正在寻找类似功能的操作入口，将「开云」作为搜索词配合具体动词（如部署、配置、调用）往往能更快定位到相关手册。</p>
+            <span class="tag">工具 · 操作参考</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-block" id="faq">
+        <h4>常见说明摘要</h4>
+        <div class="faq-item">
+            <span class="q">Q: 关键词的来源？</span>
+            <span class="a">主要来自公开的技术文档、社区讨论与信息聚合页面。原始出处可追溯至多个独立来源，本页仅做汇总索引，更完整的上下文建议直接查看 <a href="https://cn-zh-kaaiyun.com">开云</a> 相关页面。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q: 信息是否实时更新？</span>
+            <span class="a">本页为静态整理版本，不保证实时同步。建议将「开云」作为检索词，配合日期筛选自行获取最新条目。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q: 是否有官方定义？</span>
+            <span class="a">目前未发现单一权威定义。不同上下文中的用法差异较大，使用时建议以具体文档中的声明为准。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q: 如何贡献或修正信息？</span>
+            <span class="a">本索引为个人整理，暂未开放编辑。如发现明显错误或遗漏，可参考页面中的链接找到原始页面进行核对。</span>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>资料索引 · 整理于公开内容 &nbsp;|&nbsp; 页面仅作信息参考</span>
+    </div>
+
+</div>
+</body>
+</html>
